@@ -10,7 +10,7 @@ request(`${url}`, (error, response, body) => {
   const data = JSON.parse(body);
   console.log(data)
 
-  if(data.length > 0) {
+  if(0 < data.length) {
     console.log(data[0].description)
   } else {
     console.log("Breed not found");
