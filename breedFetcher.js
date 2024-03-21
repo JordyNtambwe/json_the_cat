@@ -4,7 +4,7 @@ const url = `https://api.thecatapi.com/v1/breeds/search?q=${breedName}`
 
 request(`${url}`, (error, response, body) => {
   if(error) {
-    onsole.error("Error", error)
+    console.error("Error", error)
   }
 
   const data = JSON.parse(body);
