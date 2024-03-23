@@ -1,21 +1,20 @@
 const request = require('request')
-const breedName = process.argv[2];
 const url = `https://api.thecatapi.com/v1/breeds/search?q=${breedName}`
 
 const fetchBreedDescription = function(breedName, callback) {
 
   request(`${url}`, (error, response, body) => {
     if(error) {
-      console.error("Error", error)
+      callback(`Failed to request details: ${error}`, null)
     }
   
     const data = JSON.parse(body);
     console.log(data)
   
     if(0 < data.length) {
-      console.log(data[0].description)
+      callback(null, data[0].description)
     } else {
-      console.log("Breed not found");
+      callback(`Breed not found");
     }
   })
   
