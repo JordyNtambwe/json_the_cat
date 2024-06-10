@@ -1,7 +1,5 @@
 const needle = require("needle");
 
-const request = require("request");
-
 const fetchBreedDescription = (breedName, callback) => {
   const url = `https://api.thecatapi.com/v1/breeds/search?q=${breedName}`;
   request(url, (error, _response, body) => {
